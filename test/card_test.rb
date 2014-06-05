@@ -26,15 +26,15 @@ class CardTest < MiniTest::Unit::TestCase
     assert two.greater_than?(ace)
     refute ace.greater_than?(two)
   end
-  #
-  # def test_face_card_ranks
-  #   ten = Card.new(10, :hearts)
-  #   jack = Card.new(:J, :spades)
-  #   queen = Card.new(:Q, :diamonds)
-  #   king = Card.new(:K, :clubs)
-  #
-  #   assert king.greater_than?(queen)
-  #   assert queen.greater_than?(jack)
-  #   assert jack.greater_than?(ten)
-  # end
+  
+  def test_face_card_ranks
+    ten = Card.new(10, :hearts)
+    jack = Card.new(:J, :spades)
+    queen = Card.new(:Q, :diamonds)
+    king = Card.new(:K, :clubs)
+  
+    assert king.greater_than?(queen)
+    assert queen.greater_than?(jack)
+    assert jack.greater_than?(ten)
+  end
 end

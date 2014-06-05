@@ -1,8 +1,12 @@
+require 'pry'
+
 class Card
   def initialize(rank, suit)
     @suit = suit
     @rank = rank
   end
+
+#  attr_reader :suit, :card     ## or something 
 
   def suit
     @suit
@@ -12,7 +16,7 @@ class Card
     @rank
   end
   
-  def lousy_greater_than?(card) ## this method sucks!
+  def lousy_greater_than?(_card) ## this method sucks!
     if self.rank == :A
       false
     else
@@ -21,17 +25,25 @@ class Card
   end
   
   def greater_than?(card)
+#    binding.pry
     self.value > card.value
   end
   
   def value
-    if rank.class == Fixnum
-      ## it's a number
-    else
+    if rank.class != Fixnum
       ## turn it into a number
+      if rank == :A
+        ## do magic eventually, but for now
+        points = 1
+      elsif rank == :K
+        points = 13
+      elsif rank == :Q
+        points = 12
+      else points = 11
+      end
+    else
+      points = rank
     end
-    
-    ## then compare them 
-    
+    points
   end
 end
